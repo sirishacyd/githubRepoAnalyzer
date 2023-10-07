@@ -53,4 +53,8 @@ A Go module designed to analyze GitHub repositories, providing insights into the
 Ensure you have the following installed:
 - Go (at least version 1.16)
 - Docker (if you wish to containerize the application)
+  
+## Troubleshooting
+If you encounter a 404 Not Found error, ensure that you're using the correct owner/repo format for the repository names.
+If you're trying to access a private repository, ensure your GitHub Personal Access Token has the necessary permissions.
 
