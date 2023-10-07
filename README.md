@@ -1,37 +1,56 @@
-# githubRepoAnalyzer
-This application fetches the latest release information for a list of GitHub repositories and predicts the next version number based on the current release.
+# GitHub Repository Analyzer
 
-## Pre-requisites
+A Go module designed to analyze GitHub repositories, providing insights into their latest releases, upcoming version predictions, and more.
 
-1. [Go](https://golang.org/doc/install) (To run the application natively)
-2. [Docker](https://www.docker.com/products/docker-desktop) (To run the application in a container)
-3. A GitHub Personal Access Token. Follow [this guide](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token) to generate one.
+## Features
 
-## Steps to Run Natively
+1. **Interactive User Input**: Allows users to specify a list of GitHub repositories in the format `owner/repo` for analysis.
 
-1. Clone the repository:
+2. **Repository Cloning**: Efficiently clones each user-specified repository to a local directory for further examination.
+
+3. **Latest Release Analysis**: 
+   - Fetches the most recent release for each repository.
+   - Displays the list of changes encompassed in the latest release.
+
+4. **Version Prediction**: Utilizing the principles of semantic versioning, the module predicts and displays the upcoming release version for each repository.
+
+5. **YAML Report Generation**:
+   - Generates a dedicated YAML file for every repository, capturing all the aforementioned details.
+   - Each YAML file is named after its respective repository, wherein any `/` characters are substituted with `_`.
+
+6. **Containerized Application**: The entire application is containerized using Docker, ensuring a consistent runtime environment with all the requisite dependencies.
+
+## Usage
+
+1. **Clone this Repository**:
    ```bash
-   git clone <your-repository-url>
-   cd <repository-directory>
+   git clone [repository-link]
+   cd [repository-name]
    ```
 
-2. Update the Go code (`githubRepoAnalyzer.go`) with your GitHub Personal Access Token. Replace `YOUR_GITHUB_TOKEN` with your token.
-
-3. Build and run:
+2. **Run the Go Module**:
    ```bash
-   go build -o main
-   ./main
+   go run [module-name].go
    ```
 
-## Steps to Run in Docker
+3. **Follow On-screen Prompts**: Input the desired GitHub repository names when prompted.
 
-1. Build the Docker image:
-   ```bash
-   docker build -t github-analyzer .
-   ```
+4. **View Results**: Navigate to the generated YAML files for a detailed report on each repository.
 
-2. Run the Docker container:
-   ```bash
-   docker run github-analyzer
-   ```
+5. **Containerization**:
+   - Build the Docker image:
+     ```bash
+     docker build -t github-analyzer .
+     ```
+
+   - Run the Docker container:
+     ```bash
+     docker run github-analyzer
+     ```
+
+## Dependencies
+
+Ensure you have the following installed:
+- Go (at least version 1.16)
+- Docker (if you wish to containerize the application)
 
